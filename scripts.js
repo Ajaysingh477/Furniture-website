@@ -64,3 +64,28 @@ document.addEventListener('DOMContentLoaded', function () {
         filterProducts(category); // Apply price filter to the selected category
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollBtn = document.getElementById("scroll-btn");
+
+    // Show the button when user scrolls 100px down
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+            scrollBtn.style.display = "block";
+            scrollBtn.innerHTML = "⬆"; // Change icon to up arrow
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    });
+
+    // Scroll to bottom or top when clicked
+    scrollBtn.addEventListener("click", () => {
+        if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            scrollBtn.innerHTML = "⬇"; // Change icon to down arrow
+        } else {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+            scrollBtn.innerHTML = "⬆"; // Change icon to up arrow
+        }
+    });
+});
