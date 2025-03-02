@@ -65,27 +65,34 @@ document.querySelectorAll('.product-card').forEach(card => {
 document.addEventListener("DOMContentLoaded", function () {
     const scrollBtn = document.getElementById("scroll-btn");
 
-    // Show the button when user scrolls 100px down
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
+        const scrollPos = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.body.scrollHeight;
+
+        // Show the button when user scrolls down a little and keep it visible in between
+        if (scrollPos > 100 && scrollPos < documentHeight - windowHeight - 100) {
             scrollBtn.style.display = "block";
-            scrollBtn.innerHTML = "⬆"; // Change icon to up arrow
+            scrollBtn.innerHTML = "⬇"; // Default: Scroll to bottom
+        } else if (scrollPos >= documentHeight - windowHeight - 100) {
+            scrollBtn.innerHTML = "⬆"; // Change icon to up arrow when near the bottom
         } else {
-            scrollBtn.style.display = "none";
+            scrollBtn.style.display = "none"; // Hide at the very top
         }
     });
 
-    // Scroll to bottom or top when clicked
+    // Scroll action
     scrollBtn.addEventListener("click", () => {
         if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
             window.scrollTo({ top: 0, behavior: "smooth" });
-            scrollBtn.innerHTML = "⬇"; // Change icon to down arrow
+            scrollBtn.innerHTML = "⬇";
         } else {
             window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-            scrollBtn.innerHTML = "⬆"; // Change icon to up arrow
+            scrollBtn.innerHTML = "⬆";
         }
     });
 });
+
 
 
 // Dark Mode Toggle
