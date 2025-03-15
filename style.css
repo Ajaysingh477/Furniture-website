@@ -20,27 +20,6 @@ body {
     color: var(--color-ebony);
 }
 
-#scroll-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: var(--color-desert-sand);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    display: none; /* Initially hidden */
-    transition: all 0.3s;
-}
-
-#scroll-btn:hover {
-    background: var(--color-ebony);
-}
-
-
 /* Typography */
 h1 {
     font-family: 'Crimson Pro', serif;
@@ -445,4 +424,71 @@ footer {
     .footer-content {
         grid-template-columns: 1fr;
     }
+}
+
+
+/* Auth Section */
+.auth-section {
+    padding: 5rem 2rem;
+    background: var(--color-bone);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-container h2 {
+    margin-bottom: 1.5rem;
+    font-family: 'Crimson Pro', serif;
+    color: var(--color-ebony);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-ebony);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-ash-gray);
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: var(--color-ebony);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-desert-sand);
+}
+
+.auth-container p {
+    margin-top: 1rem;
+    color: var(--color-ebony);
+}
+
+.auth-container a {
+    color: var(--color-desert-sand);
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
 }
